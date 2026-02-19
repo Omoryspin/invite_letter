@@ -1,0 +1,139 @@
+/* ===== Общие ===== */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: #f7f3f3;
+}
+
+/* ===== Баннер ===== */
+.banner img {
+  width: 100%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+.text1 {
+  text-align: center;
+  font-size: 64px;
+  margin-top: 8px;
+  font-family: 'Times New Roman', Times;
+  color: #000;
+}
+
+/* ===== Главный текст ===== */
+.rose-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 180px;
+  font-style: italic;
+  text-align: center;
+  margin: 40px 0 0;
+  color: #e2a2a0;
+  text-shadow: 0 0.5px 0 rgba(150, 80, 80, 0.35);
+  position: relative;
+  z-index: 5;
+  top:-2%;
+}
+
+/* ===== Центр изображение ===== */
+.center-image {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+}
+.center-image img {
+  width: 800px;
+  height: auto;
+}
+
+/* ===== Декорации ===== */
+.decor-section {
+  position: absolute;
+  top: 55%;  /* чуть ниже центра */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 4;
+}
+
+.decor-row {
+  display: flex;
+  align-items: center;
+  gap: 110px;
+}
+
+.decor {
+  width: 270px;
+  height: auto;
+  opacity: 0.85;
+}
+
+.center-text {
+  font-family: 'Times New Roman', Times;
+  font-size: 120px;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+  white-space: nowrap;
+  margin-top: -125px; /* поднимаем текст ЖАС */
+}
+
+/* ===== Новый текст 60 ===== */
+.after-text {
+  display: block;
+  width: 80%;           /* занимает почти всю ширину блока */
+
+  max-width: 900px;     /* ограничение на больших экранах */
+  margin: 40px auto 0;  /* сверху отступ, центрирование */
+  text-align: center;   
+  font-family: 'Great Vibes', cursive; 
+  font-size: 76px;      /* увеличенный размер шрифта */
+  line-height: 1.4;     /* расстояние между строками */
+  color: #dca7a7;       /* нежно-розовый цвет */
+  white-space: pre-line;  /* перенос строк */
+}
+
+/* ===== Фоны ===== */
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+}
+.background-layer.first {
+  width: 100%;
+  height: 100%;
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.background-layer.second {
+  width: 900px;
+  height: 900px;
+  background-image: url('bgflower2.png');
+  background-size: contain;
+  top: 275px;
+  left: 85px;
+  opacity: 0.4;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 768px) {
+  .rose-text { font-size: 64px; }
+  .text1 { font-size: 28px; }
+  .background-layer.second {
+    width: 250px;
+    height: 250px;
+    top: 40px;
+    left: 20px;
+  }
+  .decor-row { gap: 16px; }
+  .decor { width: 40px; }
+  .center-text { font-size: 48px; margin-top: -60px; }
+  .after-text { font-size: 28px; top: 65%; }
+}
