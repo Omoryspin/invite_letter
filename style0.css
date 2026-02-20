@@ -48,6 +48,13 @@ body {
   margin: 16px 0;
   
 }
+.text2 {
+  animation: slideFromLeft 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+.text1 {
+  animation: slideFromLeft 1s ease-out forwards;
+}
 
 /* ===== ИМЯ ===== */
 .rose-text {
@@ -94,6 +101,7 @@ body {
 .center-text1 {
   font-size: 120px;
   margin-top: -120px;
+  animation: fadeIn 2s ease-in forwards;
 }
 
 /* ===== КАЗАХСКИЙ ТЕКСТ ===== */
@@ -110,6 +118,7 @@ body {
   text-shadow:
     0 1px 0 rgba(255,255,255,0.7),
     0 3px 6px rgba(180,120,120,0.25);
+  animation: fadeIn 2s ease-in forwards;
 }
 
 .after-text {
@@ -121,10 +130,17 @@ body {
   font-family: 'Great Vibes', cursive;
   font-size: 86px;
   font-style: italic;
+  animation: fadeIn 1s ease-in forwards; /* 1 секунда, плавное появление */
 }
+
 
 .after-text2 {
   font-size: 76px;
+}
+.center-image img.rounded-circle {
+  width: 100px;  /* нужный размер */
+  height: auto;  /* сохраняем пропорции */
+  border-radius: 50%; /* круг */
 }
 
 /* ===== БАЛАСЫ / КЕЛІНІ ===== */
@@ -135,6 +151,16 @@ body {
   gap: 8px;
   margin: 40px 0 60px;
 }
+.centered-text {
+  text-align: center;
+}
+.countdown-timer {
+  font-family: 'Times New Roman', serif;
+  font-size: 48px;
+  text-align: center;
+  color: #e3a6a6;
+  margin: 20px 0;
+}
 
 .decor2 {
   width: 156px;
@@ -144,6 +170,14 @@ body {
   display: block;                /* изображение ведет себя как блок */
   margin: 100 auto;                /* центрируем по горизонтали */
   animation: pulseImage 3s ease-in-out infinite; /* 3 секунды, бесконечно */
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;   /* невидимый в начале */
+  }
+  100% {
+    opacity: 1;   /* полностью видимый */
+  }
 }
 @keyframes pulseBg {
   0% {
@@ -187,6 +221,28 @@ body {
   }
   100% {
     transform: scale(1);   /* возвращаем к исходному размеру */
+  }
+}
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-300px); /* старт слева */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);      /* финальная позиция */
+    opacity: 1;
+  }
+}
+
+/* ===== АНИМАЦИЯ СПРАВА ===== */
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(300px);  /* старт справа */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);      /* финальная позиция */
+    opacity: 1;
   }
 }
 /* ===== 📱 МОБИЛЬНАЯ ВЕРСИЯ ===== */

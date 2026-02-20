@@ -19,11 +19,10 @@
   <!-- БАННЕР -->
   <div class="banner">
     <img src="flower.png" alt="">
-    <div class="text1">АНАМЫЗ</div>
   </div>
 
   <!-- ИМЯ -->
-  <h1 class="rose-text">Азеля</h1>
+  <h1 class="rose-text">Азиля</h1>
 
   <!-- ЦЕНТРАЛЬНОЕ ИЗОБРАЖЕНИЕ -->
   <div class="center-image">
@@ -49,9 +48,9 @@
   </div>
 
   <!-- ТЕКСТ -->
-  <div class="text1">СІЗДЕРДІ</div>
-  <div class="text1">АЯУЛЫ АНАМЫЗ</div>
-  <div class="after-text1">Азелядын</div>
+  <div class="text1">КӨПТЕН</div>
+  <div class="text1">КҮТКЕН МЕРЕЙТОЙҒА</div>
+  <div class="after-text1">Азилядын</div>
 
   <div class="text2">70 ЖАС МЕРЕЙ ТОЙЫНА</div>
   <div class="text2">АРНАЛҒАН САЛТАНАТТЫ</div>
@@ -61,16 +60,82 @@
 
   <!-- БАЛАСЫ / КЕЛІНІ -->
   <div class="owners-section">
-    <div class="text3">Той иелері:</div>
-    <div class="after-text2">БАЛАСЫ: БАУЫРЖАН</div>
-    <div class="after-text2">КЕЛІНІ: МӨЛДІР</div>
     <img src="flowersmaller.png" alt="" class="decor2">
     <div class="after-text1">Той салтанаты:</div>
     <b></b><b></b>
     <div class="center-text1">05/04/2026</div>
     <b></b><b></b><b></b><b></b>
     <div class="center-text1">САҒАТ 17:00</div>
+    <b></b><b></b>
   </div>
+  <div class="center-image">
+    <div class="after-text1">Акпан
+    <img src="date.png" alt="">
+    </div>
+  </div>
+  <div class="center-image">
+    <img src="designB.png" alt="">
+  </div>
+  <div class="after-text1">Мекен - жайымыз</div>
+  <div class="text2">УРАЛЬСК КАЛАСЫ</div>
+  <div class="text2">Микрорайон Астана, 12/1</div>
+  <div class="after-text1">"Dombyra"</div>
+  <div class="text2">Мейрамханасы</div>
+  <b></b><b></b><b></b><b></b>
+  <b></b><b></b><b></b><b></b>
+  <b></b><b></b><b></b><b></b>
+  <div class="text2">СІЗДЕРГЕ ЫҢҒАЙЛЫ БОЛУ ҮШІН</div>
+  <div class="text2">ТӨМЕНДЕГІ КАРТАНЫ</div>
+  <div class="text2">ҚОЛДАНЫҢЫЗ.</div>
+  <div class="center-image">
+    <img src="pointA.jpeg" alt="" class="rounded-circle">
+  </div>
+  <div class="centered-text">
+    карта
+</div>
+<div class="center-image">
+    <img src="designA.png" alt="">
+  </div>
+<b></b><b></b><b></b><b></b>
+<b></b><b></b><b></b><b></b>
+<b></b><b></b><b></b><b></b>
+<div class="after-text1">Той салтанатына дейін :</div>
+  <div id="countdown" class="countdown-timer">
+  <!-- Таймер будет отображаться сюда -->
+</div>
+
+
+<script>
+const targetDate = new Date("2026-04-05T17:00:00").getTime();
+const countdownElement = document.getElementById("countdown");
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  if (distance < 0) {
+    countdownElement.innerHTML = "Той басталды!";
+    clearInterval(interval);
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdownElement.innerHTML = `${days} күн ${hours} сағат ${minutes} минут ${seconds} секунд`;
+}
+
+const interval = setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+<b></b><b></b><b></b><b></b>
+<b></b><b></b><b></b><b></b>
+<b></b><b></b><b></b><b></b>
+<div class="after-text1">Куанышымызға ортақ болыңыздар!!!</div>
+
+
 
 </body>
 </html>
