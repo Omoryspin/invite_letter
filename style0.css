@@ -1,136 +1,217 @@
-/* ===== Общие ===== */
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100svh; /* безопасно для мобильных */
-  overflow-x: hidden;
-  background: #f7f3f3;
-  font-family: 'Times New Roman', Times;
+/* ===== ОБЩИЕ ===== */
+* {
+  box-sizing: border-box;
 }
 
-/* ===== Баннер ===== */
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== ФОНЫ ===== */
+.background-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+.background-layer.first {
+  background: url("bg.jpg") center / cover no-repeat;
+}
+
+.background-layer.second {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  background: url("bgflower2.png") center / contain no-repeat;
+  top: 250px;
+  left: 80px;
+  opacity: 0.35;
+  z-index: -1;
+  transform-origin: center; /* чтобы увеличивалось от центра */
+  animation: pulseBg 10s ease-in-out infinite; /* длительность 10с */
+}
+
+/* ===== БАННЕР ===== */
 .banner img {
   width: 100%;
   display: block;
 }
 
-.text1 {
+.text1,
+.text2,
+.text3 {
   text-align: center;
   font-size: 64px;
-  margin-top: 8px;
+  margin: 16px 0;
+  
 }
 
-/* ===== Имя ===== */
+/* ===== ИМЯ ===== */
 .rose-text {
   font-family: 'Great Vibes', cursive;
   font-size: 180px;
-  text-align: center;
-  margin: 30px 0 0;
+  margin: 30px 0 10px;
   color: #e2a2a0;
+  display: block;               /* занимает всю ширину родителя */
+  text-align: center;           /* центр текста внутри блока */
+  animation: fallDown 1.2s ease-out forwards;
+  position: relative;
 }
 
-/* ===== Центральное изображение (десктоп) ===== */
+/* ===== ЦЕНТРАЛЬНЫЕ ИЗОБРАЖЕНИЯ ===== */
 .center-image {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
 }
 
 .center-image img {
   width: 800px;
+  max-width: 90%;
 }
 
-/* ===== Декор (десктоп) ===== */
+/* ===== ЖАС + ДЕКОР ===== */
 .decor-section {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
+  margin: 50px 0;
 }
 
 .decor-row {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 110px;
+  gap: 100px;
 }
 
 .decor {
-  width: 270px;
+  width: 260px;
 }
 
-.center-text {
+.center-text,
+.center-text1 {
   font-size: 120px;
-  margin-top: -125px;
+  margin-top: -120px;
 }
 
-/* ===== Текст ===== */
+/* ===== КАЗАХСКИЙ ТЕКСТ ===== */
+.after-text,
+.after-text1,
+.after-text2 {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+  text-align: center;
+  color: #e3a6a6;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.7),
+    0 3px 6px rgba(180,120,120,0.25);
+}
+
 .after-text {
-  max-width: 900px;
-  margin: 20px auto 0;
   font-family: 'Great Vibes', cursive;
   font-size: 76px;
-  text-align: center;
-  color: #dca7a7;
-  line-height: 1.4;
 }
 
-/* ===== Фоны ===== */
-.background-layer {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+.after-text1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 86px;
+  font-style: italic;
 }
 
-.background-layer.first {
-  background: url(bg.jpg) center / cover no-repeat;
+.after-text2 {
+  font-size: 76px;
 }
 
-.background-layer.second {
-  width: 900px;
-  height: 900px;
-  background: url(bgflower2.png) center / contain no-repeat;
-  top: 275px;
-  left: 85px;
-  opacity: 0.4;
+/* ===== БАЛАСЫ / КЕЛІНІ ===== */
+.owners-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 60px;
 }
 
-/* ================== 📱 МОБИЛЬНАЯ ВЕРСИЯ ================== */
+.decor2 {
+  width: 156px;
+  margin-top: 12px;
+}
+.pulse {
+  display: block;                /* изображение ведет себя как блок */
+  margin: 100 auto;                /* центрируем по горизонтали */
+  animation: pulseImage 3s ease-in-out infinite; /* 3 секунды, бесконечно */
+}
+@keyframes pulseBg {
+  0% {
+    transform: scale(1);
+  }
+  25%{
+    transform: scale(1.25);
+  }
+  50% {
+    transform: scale(1.5); /* немного увеличиваем фон */
+  }
+  75% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fallDown {
+  0% {
+    top: -300px;  /* стартует сверху */
+    opacity: 0;
+  }
+  60% {
+    top: 30px;    /* лёгкий “отскок” вниз */
+    opacity: 1;
+  }
+  80% {
+    top: -10px;   /* немного вверх */
+  }
+  100% {
+    top: 0;       /* финальная позиция */
+  }
+}
+@keyframes pulseImage {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* увеличиваем на 10% */
+  }
+  100% {
+    transform: scale(1);   /* возвращаем к исходному размеру */
+  }
+}
+/* ===== 📱 МОБИЛЬНАЯ ВЕРСИЯ ===== */
 @media (max-width: 768px) {
 
-  .text1 {
-    font-size: 26px;
+  .text1,
+  .text2 {
+    font-size: 22px;
+  }
+  .text3{
+    font-size: 32px;
+    font-style: italic;
   }
 
   .rose-text {
     font-size: 64px;
-    margin-top: 10px;
-  }
-
-  /* УБИРАЕМ ABSOLUTE */
-  .center-image,
-  .decor-section {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-  }
-
-  .center-image {
-    margin-top: 10px;
-    text-align: center;
   }
 
   .center-image img {
-    width: 85vw;
-    max-width: 320px;
+    width: 90vw;
+    max-width: 480px;
   }
 
   .decor-row {
-    justify-content: center;
     gap: 16px;
-    margin-top: 10px;
   }
 
   .decor {
@@ -141,11 +222,25 @@ body {
     font-size: 48px;
     margin-top: -40px;
   }
+  .center-text1 {
+    font-size: 35px;
+    margin-top: -40px;
+  }
 
   .after-text {
     font-size: 28px;
-    margin: 10px auto 30px;
-    width: 90%;
+  }
+
+  .after-text1 {
+    font-size: 40px;
+  }
+
+  .after-text2 {
+    font-size: 30px;
+  }
+
+  .decor2 {
+    width: 160px;
   }
 
   .background-layer.second {
