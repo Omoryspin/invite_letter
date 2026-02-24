@@ -171,6 +171,14 @@ body {
   margin: 100 auto;                /* центрируем по горизонтали */
   animation: pulseImage 3s ease-in-out infinite; /* 3 секунды, бесконечно */
 }
+.after-text,
+.after-text1,
+.after-text2,
+.text1,
+.text2 {
+  text-transform: none;
+  font-family: 'Playfair Display', serif;
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;   /* невидимый в начале */
