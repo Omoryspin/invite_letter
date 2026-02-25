@@ -1,0 +1,419 @@
+/* ===== ОБЩИЕ ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== ФОНЫ ===== */
+.background-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+.background-layer.first {
+  background: url("bg.jpg") center / cover no-repeat;
+}
+
+.background-layer.second {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  background: url("bgflower2.png") center / contain no-repeat;
+  top: 250px;
+  left: 80px;
+  opacity: 0.35;
+  z-index: -1;
+  transform-origin: center; /* чтобы увеличивалось от центра */
+  animation: pulseBg 10s ease-in-out infinite; /* длительность 10с */
+}
+
+/* ===== БАННЕР ===== */
+.banner img {
+  width: 100%;
+  display: block;
+}
+
+.text1,
+.text2,
+.text3 {
+  text-align: center;
+  font-size: 64px;
+  margin: 16px 0;
+  
+}
+.text2 {
+  animation: slideFromLeft 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+.text1 {
+  animation: slideFromLeft 1s ease-out forwards;
+  color: #e2a2a0;
+}
+
+/* ===== ИМЯ ===== */
+.rose-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 180px;
+  margin: 30px 0 10px;
+  color: #e2a2a0;
+  display: block;               /* занимает всю ширину родителя */
+  text-align: center;           /* центр текста внутри блока */
+  animation: fallDown 1.2s ease-out forwards;
+  position: relative;
+}
+
+/* ===== ЦЕНТРАЛЬНЫЕ ИЗОБРАЖЕНИЯ ===== */
+.center-image {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.center-image img {
+  width: 800px;
+  max-width: 90%;
+}
+
+/* ===== ЖАС + ДЕКОР ===== */
+.decor-section {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.decor-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.decor {
+  width: 260px;
+}
+
+.center-text,
+.center-text1 {
+  font-size: 120px;
+  margin-top: -120px;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+/* ===== КАЗАХСКИЙ ТЕКСТ ===== */
+.after-text,
+.after-text1,
+.after-text2 {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+  text-align: center;
+  color: #e3a6a6;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.7),
+    0 3px 6px rgba(180,120,120,0.25);
+  animation: fadeIn 2s ease-in forwards;
+}
+
+.after-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 76px;
+}
+
+.after-text1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 86px;
+  font-style: italic;
+  animation: fadeIn 1s ease-in forwards; /* 1 секунда, плавное появление */
+}
+
+
+.after-text2 {
+  font-size: 76px;
+}
+.center-image img.rounded-circle {
+  width: 100px;  /* нужный размер */
+  height: auto;  /* сохраняем пропорции */
+  border-radius: 50%; /* круг */
+}
+
+/* ===== БАЛАСЫ / КЕЛІНІ ===== */
+.owners-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 60px;
+}
+.centered-text {
+  text-align: center;
+}
+.countdown-timer {
+  font-family: 'Times New Roman', serif;
+  font-size: 48px;
+  text-align: center;
+  color: #e3a6a6;
+  margin: 20px 0;
+}
+
+.decor2 {
+  width: 156px;
+  margin-top: 12px;
+}
+.pulse {
+  display: block;                /* изображение ведет себя как блок */
+  margin: 100 auto;                /* центрируем по горизонтали */
+  animation: pulseImage 3s ease-in-out infinite; /* 3 секунды, бесконечно */
+}
+.after-text,
+.after-text1,
+.after-text2,
+.text1,
+.text2 {
+  text-transform: none;
+  font-family: 'Playfair Display', serif;
+}
+
+/* 📱 Мобильная версия */
+@media (max-width: 768px) {
+  #music-btn {
+    width: 75px;
+    height: 75px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  #music-btn img {
+    width: 50px;
+    height: 50px;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;   /* невидимый в начале */
+  }
+  100% {
+    opacity: 1;   /* полностью видимый */
+  }
+}
+@keyframes pulseBg {
+  0% {
+    transform: scale(1);
+  }
+  25%{
+    transform: scale(1.25);
+  }
+  50% {
+    transform: scale(1.5); /* немного увеличиваем фон */
+  }
+  75% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fallDown {
+  0% {
+    top: -300px;  /* стартует сверху */
+    opacity: 0;
+  }
+  60% {
+    top: 30px;    /* лёгкий “отскок” вниз */
+    opacity: 1;
+  }
+  80% {
+    top: -10px;   /* немного вверх */
+  }
+  100% {
+    top: 0;       /* финальная позиция */
+  }
+}
+@keyframes pulseImage {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* увеличиваем на 10% */
+  }
+  100% {
+    transform: scale(1);   /* возвращаем к исходному размеру */
+  }
+}
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-300px); /* старт слева */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);      /* финальная позиция */
+    opacity: 1;
+  }
+}
+
+/* ===== АНИМАЦИЯ СПРАВА ===== */
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(300px);  /* старт справа */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);      /* финальная позиция */
+    opacity: 1;
+  }
+}
+/* ===== 📱 МОБИЛЬНАЯ ВЕРСИЯ ===== */
+@media (max-width: 768px) {
+
+  .text1,
+  .text2 {
+    font-size: 22px;
+  }
+  .text3{
+    font-size: 32px;
+    font-style: italic;
+  }
+
+  .rose-text {
+    font-size: 64px;
+  }
+
+  .center-image img {
+    width: 90vw;
+    max-width: 480px;
+  }
+
+  .decor-row {
+    gap: 16px;
+  }
+
+  .decor {
+    width: 40px;
+  }
+
+  .center-text {
+    font-size: 48px;
+    margin-top: -40px;
+  }
+  .center-text1 {
+    font-size: 35px;
+    margin-top: -40px;
+  }
+
+  .after-text {
+    font-size: 28px;
+  }
+
+  .after-text1 {
+    font-size: 40px;
+  }
+
+  .after-text2 {
+    font-size: 30px;
+  }
+
+  .decor2 {
+    width: 160px;
+  }
+
+  .background-layer.second {
+    width: 250px;
+    height: 250px;
+    top: 40px;
+    left: 20px;
+  }
+  /* ===== 🎵 КНОПКА МУЗЫКИ (КОМПАКТНАЯ) ===== */
+#music-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 110px;   /* было 160 */
+  height: 110px;  /* было 160 */
+  z-index: 10000;
+}
+
+/* ===== 🔠 КРУГОВОЙ ТЕКСТ ===== */
+.circle-text {
+  position: absolute;
+  inset: 0;
+  font-size: 11px;     /* меньше текст */
+  color: #e3a6a6;
+  font-family: 'Times New Roman', serif;
+  letter-spacing: 2px;
+  animation: spin 14s linear infinite;
+}
+
+.circle-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 48px; /* РАДИУС */
+}
+
+/* ===== 🎵 ЦЕНТРАЛЬНАЯ КНОПКА ===== */
+#music-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;   /* было 60 */
+  height: 44px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.65);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+#music-btn img {
+  width: 20px;  /* иконка меньше */
+  height: 20px;
+}
+
+#icon-pause {
+  display: none;
+}
+
+/* ===== 🔄 ВРАЩЕНИЕ ===== */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* 📱 МОБИЛЬНАЯ ВЕРСИЯ */
+@media (max-width: 768px) {
+  #music-wrapper {
+    width: 120px;
+    height: 150px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .circle-text {
+    font-size: 9px;
+  }
+
+  .circle-text span {
+    transform-origin: 0 0px;
+  }
+
+  #music-btn {
+    width: 80px;
+    height: 80px;
+  }
+
+  #music-btn img {
+    width: 40px;
+    height: 40px;
+  }
+}
+}

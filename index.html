@@ -8,7 +8,7 @@
 
   <!-- Шрифт -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style4.css">
 </head>
 <body>
 
@@ -130,12 +130,70 @@ function updateCountdown() {
 const interval = setInterval(updateCountdown, 1000);
 updateCountdown();
 </script>
+<div class="after-text1">Осы сілтеме бойынша өтіңіз :</div>
+<div class="center-image">
+    <a href="https://forms.gle/5W7ZoXAmCJEKa62s7" target="_blank">
+    <img src="ggl.png" alt="" class="rounded-circle">
+    </a>
+  </div>
 <b></b><b></b><b></b><b></b>
 <b></b><b></b><b></b><b></b>
 <b></b><b></b><b></b><b></b>
 <div class="after-text1">Қуанышымызға ортақ болыңыз!</div>
 
+<!-- 🎵 КНОПКА МУЗЫКИ С КРУГОВЫМ ТЕКСТОМ -->
+<div id="music-wrapper">
+  <div class="circle-text" id="circle-text">
+    ӘУЕНДІ ҚОСУ • ӘУЕНДІ ҚОСУ • ӘУЕНДІ ҚОСУ •
+  </div>
 
+  <div id="music-btn">
+    <img src="playy.png" id="icon-play" alt="">
+    <img src="ps.png" id="icon-pause" alt="">
+  </div>
+</div>
 
+<audio id="bg-music" src="music.mp3"></audio>
+
+<script>
+  /* ===== КРУГОВОЙ ТЕКСТ ===== */
+  const circle = document.getElementById("circle-text");
+  const text = circle.innerText;
+  circle.innerHTML = "";
+
+  const radius = 70;
+  const step = 360 / text.length;
+
+  [...text].forEach((char, i) => {
+    const span = document.createElement("span");
+    span.innerText = char;
+    span.style.transform = `
+      rotate(${i * step}deg)
+      translate(${radius}px)
+      rotate(90deg)
+    `;
+    circle.appendChild(span);
+  });
+
+  /* ===== МУЗЫКА ===== */
+  const btn = document.getElementById("music-btn");
+  const music = document.getElementById("bg-music");
+  const play = document.getElementById("icon-play");
+  const pause = document.getElementById("icon-pause");
+
+  pause.style.display = "none";
+
+  btn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      play.style.display = "none";
+      pause.style.display = "block";
+    } else {
+      music.pause();
+      play.style.display = "block";
+      pause.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
